@@ -1,4 +1,4 @@
 eason 0000 100 0 0 flower ibu
-ian 4634 60 450 4 gengar magikarp
+ian 4634 40 450 8 gengar magikarp mizueve
 new 1111 100 50 0 mud
 end-of-file

@@ -10,11 +10,14 @@ static int WORD_X = 420;
 static int WORD_Y = 510;
 static int COIN_X = 420;
 static int COIN_Y = 540;
+static int BLOOD_X = 625;
 static void show_potions(char *name){
     char *potion_base = "Potions: ";
     char *coin_base = "Coins: ";
+    char *blood_base = "blood: ";
     char num_of_potions[10];
     char coins[10];
+    char blood[10];
     char temp[2];
 
     SDL_Color textColor = {0,0,0};
@@ -41,6 +44,34 @@ static void show_potions(char *name){
         wordRect.x = WORD_X;
         wordRect.y = WORD_Y;
         WORD_X += 10;
+        SDL_RenderCopy(getRenderer(), wordTexture, NULL, &wordRect);
+    }
+    
+    // show bload 
+    WORD_X+=30;
+    for(char *temp = blood_base;*temp != '\0'; temp++){
+        SDL_Surface *wordSurface = TTF_RenderGlyph_Solid(getFont(), *temp, textColor);
+        SDL_Texture *wordTexture = SDL_CreateTextureFromSurface(getRenderer(), wordSurface);
+        SDL_Rect wordRect;
+        wordRect.w = 10;
+        wordRect.h = 26;
+        wordRect.x = WORD_X;
+        wordRect.y = WORD_Y;
+        WORD_X += 10;
+        SDL_RenderCopy(getRenderer(), wordTexture, NULL, &wordRect);
+    }
+
+    sprintf(blood, "%d", player_lookup(name)->blood);
+    printf("player blood %s\n", blood);
+    for(char *temp = blood;*temp != '\0'; temp++){
+        SDL_Surface *wordSurface = TTF_RenderGlyph_Solid(getFont(), *temp, textColor);
+        SDL_Texture *wordTexture = SDL_CreateTextureFromSurface(getRenderer(), wordSurface);
+        SDL_Rect wordRect;
+        wordRect.w = 10;
+        wordRect.h = 26;
+        wordRect.x = BLOOD_X;
+        wordRect.y = WORD_Y;
+        BLOOD_X += 10;
         SDL_RenderCopy(getRenderer(), wordTexture, NULL, &wordRect);
     }
 
