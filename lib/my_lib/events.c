@@ -64,6 +64,14 @@ static void handleMouseMovement(SDL_Event event){
                 user_obj->potion++;
                 show_inventory(username); // have to refresh
             }
+        }else if(event.button.x >= 600 && event.button.x < 700  && event.button.y >= 570){
+            printf("use a potion\n");
+            Player *user_obj = player_lookup(username);
+            if(user_obj->potion >= 1){
+                user_obj->potion--;
+                user_obj->blood += 20;
+                show_inventory(username); // have to refresh
+            }
         }
     }
 }

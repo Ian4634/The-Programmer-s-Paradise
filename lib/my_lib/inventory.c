@@ -132,6 +132,7 @@ static void show_pokemon(char *name){
 
 static void show_button(){
     // 740 570 w = 60 h = 20
+    // buy potion button
     SDL_Rect buttonRect;
     buttonRect.w = 100;
     buttonRect.h = 33;
@@ -139,6 +140,11 @@ static void show_button(){
     buttonRect.y = 570;
 
     SDL_Texture *buttonTexture = IMG_LoadTexture(getRenderer(), "./image/button.jpg");
+    SDL_RenderCopy(getRenderer(), buttonTexture, NULL, &buttonRect);
+    
+    // show use potion button
+    buttonRect.x -= 100;
+    buttonTexture = IMG_LoadTexture(getRenderer(), "./image/use.jpg");
     SDL_RenderCopy(getRenderer(), buttonTexture, NULL, &buttonRect);
 }
 
@@ -153,6 +159,7 @@ void show_inventory(char *name){
     COIN_X = 420;
     COIN_Y = 540;
     WORD_X = 420;
+    BLOOD_X = 625;
     // get the desired player struct
     Player *user = player_lookup(name);
     printf("he has %d %d\n", user->coin, user->potion);
