@@ -48,29 +48,29 @@ void initialize_battle(int enemy_num){
     ball_needs.DestRect = set_DestRect(ball_needs.DestRect, 274, 414, 85, 65);
     switch(enemy_num){
             case 1:
-                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/gengar.png");
+                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/gengar.jpg");
                 break;
             case 2:
-                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/magikarp.png");
+                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/magikarp.jpg");
 
                 break;
             case 3:
-                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/pikachu.png");
+                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/pikachu.jpg");
                 break;
             case 4:
-                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/guyly.png");
+                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/guyly.jpg");
                 break;
             case 5:
-                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/ducklin.png");
+                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/ducklin.jpg");
                 break;
             case 6:
-                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/mizueve.png");
+                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/mizueve.jpg");
                 break;
             case 7:
-                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/rat.png");
+                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/rat.jpg");
                 break;
             case 8:
-                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/mud.png");
+                enemy_needs.Texture = IMG_LoadTexture(getRenderer(),"./image/mud.jpg");
                 break;
             default:
                 break;
@@ -278,7 +278,7 @@ int paper_scissor_stone(char gamer, SDL_need battle_needs, SDL_need enemy_needs,
         printf("computer win!\n");
         //SDL_Color color = {255, 255, 255, 255};
         renderText(getRenderer(), getFont(), "Computer Win!", color, 100, 300, 1000);
-        add_minus_blood(player_lookup(username), -1);
+        add_minus_blood(player_lookup(username), -20);
         
         if(player_lookup(username)->blood <= 0){
             you_die();

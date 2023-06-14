@@ -73,11 +73,12 @@ static void show_potions(char *name){
 }
 
 static void show_pokemon(char *name){
+    
 
     char dir[100] = "./image/";
     strcat(dir, name);
     strcat(dir, ".jpg");
-
+    printf("show %s in %s\n", name, dir);
     SDL_Rect PokemonDestRect;
     PokemonDestRect.x = POKEMON_X;
     PokemonDestRect.y = POKEMON_Y;
@@ -91,7 +92,7 @@ static void show_pokemon(char *name){
     }else{
         POKEMON_X += 100;
     }
-    
+    printf("error %s\n", SDL_GetError());
 
     SDL_Texture *pokemonTexture = IMG_LoadTexture(getRenderer(),dir);
     SDL_RenderCopy(getRenderer(), pokemonTexture, NULL, &PokemonDestRect);
@@ -113,6 +114,7 @@ static void show_button(){
 // show *name's inventory
 // this function copies everything to the renderer and present em together
 void show_inventory(char *name){
+    printf("show inventory\n");
     // reset these values otherwise they continues to grow
     POKEMON_X = SCREEN_WIDTH / 2;
     POKEMON_Y = SCREEN_HEIGHT / 2;

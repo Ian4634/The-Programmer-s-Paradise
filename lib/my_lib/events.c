@@ -52,7 +52,11 @@ static void handlePlayerMovement(SDL_Event events){
 static void handleMouseMovement(SDL_Event event){
     if(event.button.button == SDL_BUTTON_LEFT){
         printf("clicked at %d %d\n", event.button.x, event.button.y);
-        if(event.button.x >= 700 && event.button.y >= 570){
+        if(event.button.x >= 5 && event.button.x <= 55 && event.button.y >= 560 && event.button.y <= 590){
+
+            show_inventory(username);
+
+        }else if(event.button.x >= 700 && event.button.y >= 570){
             printf("buy a potion\n");
             Player *user_obj = player_lookup(username);
             if(user_obj->coin >= 100){
